@@ -54,11 +54,82 @@ var teeco = function(){
     return ary
 }
 
+function fromPairs(ary) {
+  var result = {}
+  for (var i = 0; i < ary.length; i++) {
+    result[ary[i][0]] = ary[i][1]
+  }
+  return result
+}
+
+function head(ary) {
+ return ary[0]
+}
+
+function indexOf(ary, val, fromIndex=0){
+for(i = 0;i < ary.length;i++){
+  if(ary[i] == val)
+  return i
+}
+return -1
+}
+
+function initial(ary){
+result = []
+for(i = 0;i < ary.length-1;i++){
+result.push(ary[i])
+}
+return result
+}
+
+function join(ary, sep) {
+  var result = ""
+  for (var i = 0; i < ary.length - 1; i++) {
+      result += ary[i] + "" + sep
+  }
+  result += ary[i] + ""
+  return result                                                                
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return {
     chunk,
     compact,
     difference,
     drop,
+    dropRight,
+    fill,
+    fromPairs,
+    head,
+    indexOf,
+    initial,
   }
 }()
 

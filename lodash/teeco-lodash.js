@@ -3,7 +3,7 @@ var teeco = function(){
   function chunk(ary,num){
     var result = []
     var a = []
-    for(var i = 0;i < ary.lenth;i++){
+    for(var i = 0;i < ary.length;i++){
       a.push(ary[i])
       if(a.length == num){
         result.push(a)
@@ -16,15 +16,14 @@ var teeco = function(){
     return result
   }
 
-  function compact(ary){
+  function compact(ary) {
     var result = []
-    for(var i = 0;i < ary.lenth;i++){
-     if(ary[i] = true){
+    for (var i = 0; i < ary.length; i++) {
+        if (ary[i]) 
         result.push(ary[i])
-     }
     }
-   return result
-  }
+    return result
+}
 
   function difference(ary,...val){
     var result = []
@@ -37,12 +36,23 @@ var teeco = function(){
   }
 
   function drop(ary, n = 1) {
+    return ary.slice(n)
+}
+
+  function dropRight(ary, n = 1) {
     var result = []
-    for(var i = -1;i < ary.length;i++){
-        result.push(ary - ary[i])
+    for(var i = 0;i < ary.length-n;i++){
+        result.push(ary[i])
     }
     return result
   }
+
+  function fill(ary, val, start = 0, end = ary.length) {
+    for (let i = start; i < end; i++) {
+        ary[i] = val
+    }
+    return ary
+}
 
   return {
     chunk,
@@ -51,3 +61,4 @@ var teeco = function(){
     drop,
   }
 }()
+

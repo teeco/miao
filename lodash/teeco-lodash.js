@@ -25,15 +25,19 @@ var teeco = function(){
     return result
 }
 
-  function difference(ary,...val){
-    var result = []
-    var value = []
-    for(var i = 0;i < val.length;i++){
-     value.push(val[i])
-    }
-    result.push(ary - value)
-   return result
+function difference(array, ...values) {
+  let obj = {}
+  let res = []
+  for (let i = 0; i < values.length; i++) {
+      for (let j = 0; j < values[i].length; j++) {
+          obj[values[i][j]] = i
+      }
   }
+  for (let i = 0; i < array.length; i++) {
+      if (obj[array[i]] == undefined) res.push(array[i])
+  }
+  return res
+}
 
   function drop(ary, n = 1) {
     return ary.slice(n)
@@ -82,34 +86,62 @@ result.push(ary[i])
 return result
 }
 
+
+
+
 function join(ary, sep) {
-  var result = ""
-  for (var i = 0; i < ary.length - 1; i++) {
-      result += ary[i] + "" + sep
+
+  var result = '' + ary[0] 
+
+  for (var i = 1; i < ary.length; i++) { 
+      result += '' + sep + ary[i] 
   }
-  result += ary[i] + ""
-  return result                                                                
-  
+  return result
+}
+
+function last(ary) {
+
+
+  return ary[ary.length-1]
 }
 
 
+function lastIndexOf(ary, value, fromIndex=ary.length-1) {
+  for (var i = fromIndex; i >= 0; i--) {
+      if (ary[i] == value) {
+          return i
+      }
+  }
+  return -1
+}
 
 
+function reverse(array){
+  var result =[]
+  for(var i = array.length-1 ; i>=0 ; i--){
+    result.push(array[i])
+  }
+  return result
+}
 
 
+function sortedIndex(array, value) {
+  for(var i = 0 ;i < array.length ;i++){
+    if(array[i] < value && array[i+1] >= value){
+      return i+1
+    }
+  }
+}
 
 
+function toArray(val) {
+  var result = [];
+  for (var i in val) {
+      result.push(val[i]);      
+  } 
 
-
-
-
-
-
-
-
-
-
-
+  return result;
+}
 
 
 
@@ -130,6 +162,12 @@ function join(ary, sep) {
     head,
     indexOf,
     initial,
+    join,
+    last,
+    lastIndexOf,
+    reverse,
+    sortedIndex,
+    toArray
   }
 }()
 
